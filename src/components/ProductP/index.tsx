@@ -13,7 +13,7 @@ const Product = ({ description, image, title }: Props) => (
     <Titulo>Pizza Marguerita</Titulo>
     <Descricao>{description}</Descricao>
     <TagWrapper>
-      <Tag>Adicionar ao carrinho</Tag>
+      <Tag fullWidth>Adicionar ao carrinho</Tag>
     </TagWrapper>
   </Card>
 )

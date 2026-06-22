@@ -14,7 +14,7 @@ export const TagContainer = styled.div<TagProps>`
   padding: 4px 6px;
   display: ${({ fullWidth }) => (fullWidth ? 'block' : 'inline-block')};
   width: ${({ fullWidth }) => (fullWidth ? '100%' : 'auto')};
-  margin: ${({ fullWidth }) => (fullWidth ? '8px' : '0')};
+  margin: 0;
   box-sizing: border-box;
   text-align: ${({ fullWidth }) => (fullWidth ? 'center' : 'left')};
   cursor: ${({ fullWidth, hasLink }) =>

@@ -31,4 +31,5 @@ export const Descricao = styled.p`
   font-size: 36px;
   line-height: 100%;
   letter-spacing: 0%;
+  text-align: center;
 `
