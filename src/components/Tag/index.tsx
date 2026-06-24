@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { TagContainer } from './styles'
 
 export type Props = {
-  children: string
+  children: React.ReactNode
   fullWidth?: boolean
   href?: string
 }

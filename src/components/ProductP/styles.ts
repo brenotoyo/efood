@@ -6,6 +6,15 @@ export const Card = styled.div`
   border: none;
   padding: 8px;
   margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  > img {
+    width: 300px;
+    height: 170px;
+    object-fit: cover;
+  }
 `
 
 export const Titulo = styled.h3`
@@ -22,5 +31,5 @@ export const Descricao = styled.p`
 `
 
 export const TagWrapper = styled.div`
-  margin-top: 8px;
+  margin-top: auto;
 `

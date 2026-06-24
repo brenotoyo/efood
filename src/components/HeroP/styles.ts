@@ -1,14 +1,13 @@
 import styled from 'styled-components'
-import fundo from '../../assets/imagem de fundo.png'
 import { cores } from '../../styles'
 
 export const Container = styled.div`
-  background-image: url('${fundo}');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   width: 100%;
   height: 280px;
+  position: relative;
 
   .container {
     max-width: 1024px;
@@ -19,6 +18,18 @@ export const Container = styled.div`
     padding: 32px 0 32px 0;
     flex-direction: column;
     justify-content: space-between;
+    position: relative;
+    z-index: 1;
+  }
+
+  &::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    content: '';
   }
 `
 

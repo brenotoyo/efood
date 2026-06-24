@@ -1,11 +1,21 @@
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { cores } from '../../styles'
 
-export const Card = styled.div`
+export const Card = styled(Link)`
   background-color: ${cores.branco};
   border: 1px solid ${cores.vermelho};
+  color: ${cores.vermelho};
   position: relative;
   margin-top: 48px;
+  text-decoration: none;
+
+  img {
+    width: 100%;
+    height: 217px;
+    object-fit: cover;
+    display: block;
+  }
 `
 
 export const Infos = styled.div`
