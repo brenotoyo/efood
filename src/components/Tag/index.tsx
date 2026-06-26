@@ -5,14 +5,16 @@ export type Props = {
   children: React.ReactNode
   fullWidth?: boolean
   href?: string
+  onClick?: () => void
 }
 
-const Tag = ({ children, fullWidth, href }: Props) => (
+const Tag = ({ children, fullWidth, href, onClick }: Props) => (
   <TagContainer
     as={href ? Link : 'div'}
     to={href}
     fullWidth={fullWidth}
     hasLink={!!href}
+    onClick={onClick}
   >
     {children}
   </TagContainer>

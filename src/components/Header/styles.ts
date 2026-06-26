@@ -24,3 +24,8 @@ export const Container = styled.div`
     align-items: center;
   }
 `
+export const CartButton = styled.a`
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 900;
+`

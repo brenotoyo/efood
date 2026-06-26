@@ -1,5 +1,6 @@
+import { useDispatch } from 'react-redux'
 import { useState } from 'react'
-
+import { add, open } from '../../store/reducers/Cart'
 import Product from '../ProductP'
 import {
   Container,
@@ -42,6 +43,14 @@ const ProductListP = ({ cardapio }: Props) => {
     porcao: '',
   })
 
+  const dispatch = useDispatch()
+
+  const addToCart = () => {
+    dispatch(add(modal))
+    dispatch(open())
+    fecharModal()
+  }
+
   const abrirModal = (prato: Prato) => {
     setModal({ isVisible: true, ...prato })
   }
@@ -78,7 +87,7 @@ const ProductListP = ({ cardapio }: Props) => {
               <h2>{modal.nome}</h2>
               <p>{modal.descricao}</p>
               <p>Serve: {modal.porcao}</p>
-              <Tag fullWidth>
+              <Tag fullWidth onClick={addToCart}>
                 Adicionar ao carrinho -{' '}
                 {modal.preco.toLocaleString('pt-BR', {
                   style: 'currency',

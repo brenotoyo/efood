@@ -86,5 +86,9 @@ export const Textos = styled.div`
     margin-top: auto;
     max-width: 220px;
     width: 100%;
+
+    &:hover {
+      background-color: ${cores.begeClaro};
+    }
   }
 `

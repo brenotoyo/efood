@@ -1,21 +1,14 @@
-import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
-import type { Comida } from '../Home'
 import Header from '../../components/Header'
 import HeroP from '../../components/HeroP'
 import ProductListP from '../../components/ProductListP'
+import { useGetComidasQuery } from '../../services/Api'
 
 const Perfil = () => {
   const { id } = useParams()
 
-  const [comida, setComida] = useState<Comida>()
-
-  useEffect(() => {
-    fetch(`https://api-ebac.vercel.app/api/efood/restaurantes/${id}`)
-      .then(res => res.json())
-      .then(res => setComida(res))
-  }, [id])
+  const { data: comida } = useGetComidasQuery(id!)
 
   if (!comida) {
     return <h3>Carregando...</h3>
