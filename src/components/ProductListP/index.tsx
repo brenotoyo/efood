@@ -77,7 +77,7 @@ const ProductListP = ({ cardapio }: Props) => {
             <Textos>
               <h2>{modal.nome}</h2>
               <p>{modal.descricao}</p>
-              <p>Serve: de 2 a 3 pessoas</p>
+              <p>Serve: {modal.porcao}</p>
               <Tag fullWidth>
                 Adicionar ao carrinho -{' '}
                 {modal.preco.toLocaleString('pt-BR', {
