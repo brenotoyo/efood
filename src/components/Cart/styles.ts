@@ -37,6 +37,17 @@ export const Sidebar = styled.aside`
   ${TagContainer} {
     font-size: 14px;
     font-weight: bold;
+
+    &:hover {
+      background-color: ${cores.begeClaro};
+    }
+  }
+
+  .empty-text {
+    font-size: 14px;
+    line-height: 22x;
+    color: ${cores.bege};
+    text-align: center;
   }
 `
 

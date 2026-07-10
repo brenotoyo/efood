@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux'
 
-import { close, remove } from '../../store/reducers/Cart'
+import { close, remove, openCheck } from '../../store/reducers/Cart'
 import type { RootReducer } from '../../store'
 import Tag from '../Tag'
 import { CartContainer, CartItem, Overlay, Sidebar, Total } from './styles'
@@ -17,7 +17,7 @@ const Cart = () => {
     dispatch(remove(id))
   }
 
-  const formataPreco = (preco = 0) => {
+  const parseToBrl = (preco = 0) => {
     return new Intl.NumberFormat('pt-BR', {
       style: 'currency',
       currency: 'BRL',
@@ -30,30 +30,46 @@ const Cart = () => {
     }, 0)
   }
 
+  const openCheckout = () => {
+    closeCart()
+    dispatch(openCheck())
+  }
+
   return (
     <CartContainer className={isOpen ? 'is-open' : ''}>
       <Overlay onClick={closeCart} />
       <Sidebar>
-        <ul>
-          {items.map(item => (
-            <CartItem key={item.id}>
-              <img src={item.foto} alt={item.nome} />
-              <div>
-                <h3>{item.nome}</h3>
-                <span>{formataPreco(item.preco)}</span>
-              </div>
-              <button
-                onClick={() => removeItem(item.id)}
-                type="button"
-              ></button>
-            </CartItem>
-          ))}
-        </ul>
-        <Total>
-          <p>Valor total:</p>
-          <p>{formataPreco(getTotalPrice())}</p>
-        </Total>
-        <Tag fullWidth>Continuar com a entrega</Tag>
+        {items.length > 0 ? (
+          <>
+            <ul>
+              {items.map(item => (
+                <CartItem key={item.id}>
+                  <img src={item.foto} alt={item.nome} />
+                  <div>
+                    <h3>{item.nome}</h3>
+                    <span>{parseToBrl(item.preco)}</span>
+                  </div>
+                  <button
+                    onClick={() => removeItem(item.id)}
+                    type="button"
+                  ></button>
+                </CartItem>
+              ))}
+            </ul>
+            <Total>
+              <p>Valor total:</p>
+              <p>{parseToBrl(getTotalPrice())}</p>
+            </Total>
+            <Tag fullWidth onClick={openCheckout}>
+              Continuar com a entrega
+            </Tag>
+          </>
+        ) : (
+          <p className="empty-text">
+            O carrinho está vazio, adicione pelo menos 1 produto para continuar
+            com a compra
+          </p>
+        )}
       </Sidebar>
     </CartContainer>
   )
