@@ -1,73 +1,40 @@
-# React + TypeScript + Vite
+# 🍔 efood
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> Uma lista de restaurantes e seus respectivos cardápios.
 
-Currently, two official plugins are available:
+## 🚀 Sobre o Projeto
+O **efood** é um projeto feito com o propósito de filtrar restaurantes 
+e seus cardápios, nele é possível também adicionar itens ao carrinho e
+seguir o passo a passo de uma possível compra, via fomulário de compras.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+### 🛠 Tecnologias
+As principais ferramentas usadas na construção do projeto:
+- [React](https://react.dev)
+- [Typescript](https://www.typescriptlang.org)
 
-## React Compiler
+## ✨ Funcionalidades
+- [x] Listar reastaurantes.
+- [x] Listar intens de cada restaurante.
+- [x] Cria um carrinho que contenha todos os itens adicionados nele.
+- [x] Criar formulário que seguem o passo a passo de uma compra.
+- [ ] Fazer conexão com um banco de dados para cadastrar compras efetuadas (em breve).  
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 📦 Como rodar
 
-## Expanding the ESLint configuration
+### Pré-requisitos
+Nenhum — basta um navegador moderno.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Passo a passo
+```bash
+1 Clone o repositório:
+git clone https://github.com/brenotoyo/efood
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+2. Instale dependências
+npm install
+   ou
+yarn install
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+# 3. Rode em modo de desenvolvimento
+npm run dev     # Vite
+# ou
+npm start       # Create React App
